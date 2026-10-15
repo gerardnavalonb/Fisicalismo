@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiencia filosófica interactiva para Bachillerato sobre el fisicalismo, el materialismo eliminativo de los Churchland y Daniel Dennett.">
+  <title>MENTE / CEREBRO — Experiencia Filosófica Interactiva</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado y Navegación de Progreso Persistente -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="logo-group">
+        <span class="logo-badge">FILOSOFÍA</span>
+        <h1 class="logo-title">MENTE <span>/</span> CEREBRO</h1>
+      </div>
+      <div class="header-actions">
+        <button id="btnOpenGlossary" class="btn-icon" aria-label="Abrir glosario de términos filosóficos">
+          <span>📖 Glosario</span>
+        </button>
+        <button id="btnResetApp" class="btn-icon" aria-label="Reiniciar toda la experiencia">
+          <span>🔄 Reiniciar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de progreso con 6 fases -->
+    <nav class="stepper-nav" aria-label="Fases del recorrido filosófico">
+      <div class="progress-track">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <button class="step-item active" data-step="1" id="stepBtn-1" aria-label="Fase 1: El Dilema">
+        <span class="step-circle">1</span>
+        <span class="step-label">El Dilema</span>
+      </button>
+      <button class="step-item" data-step="2" id="stepBtn-2" aria-label="Fase 2: Fisicalismo">
+        <span class="step-circle">2</span>
+        <span class="step-label">Fisicalismo</span>
+      </button>
+      <button class="step-item" data-step="3" id="stepBtn-3" aria-label="Fase 3: Astronomía">
+        <span class="step-circle">3</span>
+        <span class="step-label">Astronomía</span>
+      </button>
+      <button class="step-item" data-step="4" id="stepBtn-4" aria-label="Fase 4: 3 Posiciones">
+        <span class="step-circle">4</span>
+        <span class="step-label">3 Posiciones</span>
+      </button>
+      <button class="step-item" data-step="5" id="stepBtn-5" aria-label="Fase 5: Laboratorio">
+        <span class="step-circle">5</span>
+        <span class="step-label">Laboratorio</span>
+      </button>
+      <button class="step-item" data-step="6" id="stepBtn-6" aria-label="Fase 6: Tu Informe">
+        <span class="step-circle">6</span>
+        <span class="step-label">Tu Informe</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Contenedor principal de contenidos -->
+  <main class="app-container" id="mainContent">
+
+    <!-- =============================================================
+         FASE 1: EL DILEMA
+         ============================================================= -->
+    <section class="phase-container active" id="phase-1" aria-labelledby="phase1-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 1 de 6 · Punto de Partida</span>
+        <h2 class="phase-title" id="phase1-heading">¿Eres tu cerebro?</h2>
+        <p class="phase-subtitle">Tus pensamientos parecen íntimos, subjetivos y propios. Pero ¿qué son exactamente?</p>
+      </div>
+
+      <!-- Simulador de Red Neuronal y Sinapsis -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">⚡</div>
+          <div>
+            <h3 class="card-title">Sustrato Biológico en Tiempo Real</h3>
+            <p class="answer-record-item">Haz clic en el lienzo para disparar potenciales de acción e impulsos entre neuronas:</p>
+          </div>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="neuralCanvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Caso de Estudio Inicial -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">📝</div>
+          <div>
+            <h3 class="card-title">El caso del examen de mañana</h3>
+            <p class="answer-record-item">Lee la siguiente situación cotidiana que todos hemos experimentado:</p>
+          </div>
+        </div>
+        <div class="theory-core-box">
+          <p>«Mañana tienes un examen decisivo. Miras tus apuntes y <strong>piensas</strong> que no has estudiado suficiente. Sientes una punzada de preocupación, <strong>deseas</strong> con fuerza aprobar y <strong>decides</strong> conscientemente estudiar una hora más».</p>
+        </div>
+
+        <form id="phase1Form" onsubmit="event.preventDefault();">
+          <!-- Pregunta 1 -->
+          <div class="question-block" id="block-p1_q1">
+            <p class="question-text">1. Cuando dices «creo que suspenderé», ¿dónde y cómo existe esa creencia?</p>
+            <div class="options-grid" role="radiogroup" aria-label="Pregunta 1">
+              <button type="button" class="option-btn" data-qid="p1_q1" data-opt="a">
+                <span class="option-marker">A</span>
+                <span>En un ámbito mental inmaterial o subjetivo; no es un objeto físico localizable en el espacio.</span>
+              </button>
+              <button type="button" class="option-btn" data-qid="p1_q1" data-opt="b">
+                <span class="option-marker">B</span>
+                <span>Es estrictamente un patrón de activación electroquímica entre redes de neuronas en mi cerebro.</span>
+              </button>
+              <button type="button" class="option-btn" data-qid="p1_q1" data-opt="c">
+                <span class="option-marker">C</span>
+                <span>Es solo una forma lingüística práctica que uso para describir mi conducta, no una "cosa" dentro de mi cabeza.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="question-block" id="block-p1_q2">
+            <p class="question-text">2. Tu deseo de aprobar, ¿es algo ontológicamente diferente del cerebro o es pura actividad cerebral?</p>
+            <div class="options-grid" role="radiogroup" aria-label="Pregunta 2">
+              <button type="button" class="option-btn" data-qid="p1_q2" data-opt="a">
+                <span class="option-marker">A</span>
+                <span>Es idéntico a una configuración neuroquímica (dopamina, conexiones sinápticas en la corteza prefrontal y el sistema límbico).</span>
+              </button>
+              <button type="button" class="option-btn" data-qid="p1_q2" data-opt="b">
+                <span class="option-marker">B</span>
+                <span>Es una vivencia consciente de naturaleza no física, aunque influida por el estado biológico del cuerpo.</span>
+              </button>
+              <button type="button" class="option-btn" data-qid="p1_q2" data-opt="c">
+                <span class="option-marker">C</span>
+                <span>Es una etiqueta de nuestra psicología cotidiana para predecir lo que haré a continuación.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pregunta 3 (Abierta) -->
+          <div class="question-block" id="block-p1_q3">
+            <p class="question-text">3. Reflexión de partida: Si una máquina superavanzada pudiera escanear y registrar con precisión atómica todos los procesos físicos de tu cerebro en este instante, ¿crees que sabría absolutamente todo lo necesario para explicar tu mente y lo que sientes?</p>
+            <textarea id="p1_q3_text" class="reflective-textarea" placeholder="Escribe tu reflexión inicial aquí (mínimo 2-3 líneas). No hay respuestas 'correctas' cerradas en este momento: guardaremos tu intuición inicial para contrastarla al final del recorrido..."></textarea>
+            <div class="textarea-footer">
+              <span id="p1_char_count">0 caracteres</span>
+              <span>Tus respuestas se guardan automáticamente para tu informe final</span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="phase-footer-nav">
+        <div></div>
+        <button id="btnContinuePhase1" class="btn btn-primary" disabled>
+          <span>Continuar a Fase 2: Descubre el Fisicalismo</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         FASE 2: DESCUBRE EL FISICALISMO
+         ============================================================= -->
+    <section class="phase-container" id="phase-2" aria-labelledby="phase2-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 2 de 6 · Fundamentación Conceptual</span>
+        <h2 class="phase-title" id="phase2-heading">Descubre el Fisicalismo</h2>
+        <p class="phase-subtitle">La relación entre la materia, la mente consciente y las explicaciones de la vida cotidiana.</p>
+      </div>
+
+      <!-- Definición Central -->
+      <div class="card" style="border-left: 4px solid var(--accent-cyan);">
+        <span class="theory-tag" style="background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan); border: 1px solid var(--accent-cyan);">Definición Central</span>
+        <h3 class="card-title" style="margin: 0.75rem 0; font-size: 1.35rem; color: #ffffff;">
+          «El fisicalismo sostiene que todo lo que existe es físico y que los fenómenos mentales deben entenderse en relación con la realidad física».
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          En la filosofía contemporánea de la mente, el fisicalismo va mucho más allá de constatar que «un golpe en la cabeza te deja inconsciente». Afirma que no hay sustancias espirituales ni almas flotantes: todo pensamiento, recuerdo o emoción es una manifestación o propiedad del mundo físico y biológico.
+        </p>
+      </div>
+
+      <!-- Ilustración Conceptual: El Modelo Fisicalista -->
+      <div class="card-figure-illustration">
+        <div class="figure-img-wrapper">
+          <img src="assets/fisicalismo_mente_cerebro.jpg" alt="Infografía conceptual del modelo fisicalista: mente, cerebro y redes neuronales" class="figure-img" loading="lazy">
+        </div>
+        <div class="figure-caption">
+          <span class="figure-tag">Figura 1 · El Modelo Fisicalista</span>
+          <strong>La mente como producto del sustrato cerebral:</strong> En el fisicalismo, percepciones, recuerdos, creencias y sensaciones conscientes emergen directamente de la actividad de las redes neuronales y los potenciales sinápticos. No existe una «sustancia pensante inmaterial» separada del orden físico natural.
+        </div>
+      </div>
+
+      <!-- 3 Módulos Explicativos Interactivos -->
+      <div class="theories-grid" style="margin-bottom: 2rem;">
+        <div class="theory-card card-fisicalismo">
+          <span class="theory-tag">Concepto 1</span>
+          <h4 class="theory-title">1. Relación Mente-Cerebro</h4>
+          <p class="theory-author">Dependencia ontológica y causal</p>
+          <div class="theory-core-box">
+            Cada pensamiento o emoción se corresponde con cambios fisiológicos mensurables en redes neuronales.
+          </div>
+          <ul class="theory-bullets">
+            <li>Si un fármaco altera la recaptación de serotonina, tu estado de ánimo se transforma de inmediato.</li>
+            <li>Si una lesión cerebral daña el área de Wernicke, pierdes la comprensión lingüística. Para el fisicalismo, la mente está arraigada en la maquinaria cerebral.</li>
+          </ul>
+        </div>
+
+        <div class="theory-card card-fisicalismo">
+          <span class="theory-tag">Concepto 2</span>
+          <h4 class="theory-title">2. Estados Intencionales</h4>
+          <p class="theory-author">Creencias, deseos e intenciones</p>
+          <div class="theory-core-box">
+            La mente se caracteriza por la intencionalidad: la capacidad de dirigirse *hacia* cosas del mundo exterior.
+          </div>
+          <ul class="theory-bullets">
+            <li>Crees <em>que mañana lloverá</em>. Deseas <em>aprobar el examen</em>.</li>
+            <li>El gran enigma para la ciencia física: ¿cómo puede un órgano físico de 1,4 kg tener estados que signifiquen cosas y se refieran al futuro?</li>
+          </ul>
+        </div>
+
+        <div class="theory-card card-fisicalismo">
+          <span class="theory-tag">Concepto 3</span>
+          <h4 class="theory-title">3. Psicología Popular</h4>
+          <p class="theory-author">Folk Psychology: el marco del sentido común</p>
+          <div class="theory-core-box">
+            Es la forma cotidiana con la que explicamos y predecimos la conducta humana mediante razones, creencias y deseos.
+          </div>
+          <ul class="theory-bullets">
+            <li>«Laura corrió porque <em>creía</em> que perdía el autobús y <em>deseaba</em> llegar puntual».</li>
+            <li>Funciona asombrosamente bien a diario, pero ¿es una teoría científica exacta sobre la arquitectura del cerebro?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Actividad Interactiva de Emparejamiento con Feedback Razonado -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">🧩</div>
+          <div>
+            <h3 class="card-title">Actividad de Discriminación Conceptual</h3>
+            <p class="answer-record-item">Asigna cada afirmación al concepto filosófico riguroso que le corresponde:</p>
+          </div>
+        </div>
+
+        <div id="phase2MatchingContainer">
+          <!-- Generado dinámicamente desde questions.js -->
+        </div>
+
+        <div id="phase2FeedbackSummary" style="display: none; margin-top: 1.5rem;"></div>
+      </div>
+
+      <div class="phase-footer-nav">
+        <button id="btnBackPhase2" class="btn btn-secondary">
+          <span>← Volver a Fase 1</span>
+        </button>
+        <button id="btnContinuePhase2" class="btn btn-primary" disabled>
+          <span>Continuar a Fase 3: La Analogía Astronómica</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         FASE 3: LA ANALOGÍA ASTRONÓMICA
+         ============================================================= -->
+    <section class="phase-container" id="phase-3" aria-labelledby="phase3-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 3 de 6 · Cambio Teórico y Lenguaje</span>
+        <h2 class="phase-title" id="phase3-heading">La Analogía Astronómica</h2>
+        <p class="phase-subtitle">De Ptolomeo a Copérnico: ¿Por qué seguimos diciendo que «el Sol sale» si la física sabe que es la Tierra la que rota?</p>
+      </div>
+
+      <!-- Simulador Astronómico Interactivo -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">🔭</div>
+          <div>
+            <h3 class="card-title">Laboratorio Visual de Perspectiva Astronómica</h3>
+            <p class="answer-record-item">Compara el modelo geocéntrico histórico con la realidad física heliocéntrica:</p>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="astroCanvas"></canvas>
+          <div class="canvas-controls">
+            <div style="display: flex; gap: 0.5rem;">
+              <button id="btnGeocentricMode" class="btn btn-secondary active-mode" style="border-color: var(--accent-cyan);">
+                <span>🌍 Modelo Geocéntrico (Ptolomeo)</span>
+              </button>
+              <button id="btnHeliocentricMode" class="btn btn-secondary">
+                <span>☀️ Modelo Heliocéntrico (Copérnico)</span>
+              </button>
+            </div>
+            <button id="btnToggleAstroPlay" class="btn btn-outline">
+              <span id="astroPlayIcon">⏸️ Pausar</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="theory-core-box" style="margin-top: 1rem;">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 0.4rem;">La analogía filosófica fundamental:</h4>
+          <p>
+            Durante siglos creímos que el Sol giraba alrededor de la Tierra. La ciencia demostró que era falso. Y sin embargo, hoy en día <strong>seguimos diciendo «el Sol sale por el este y se pone por el oeste»</strong>. Es un recurso lingüístico cómodo y útil que sobrevive al cambio científico sin comprometer a nadie con la astronomía de Ptolomeo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta Filosófica Profunda con Justificación -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">⚖️</div>
+          <div>
+            <h3 class="card-title">Pregunta de Razonamiento Epistemológico</h3>
+            <p class="answer-record-item">Aplica la analogía al problema mente-cerebro:</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <p class="question-text">
+            «Si en nuestra vida diaria seguimos hablando continuamente de "creencias", "deseos" e "intenciones", ¿significa necesariamente que existen como entidades mentales independientes del cerebro?»
+          </p>
+          <div class="options-grid" id="astroOptionsGrid">
+            <!-- Renderizado dinámico -->
+          </div>
+
+          <div id="astroFeedbackBox" style="display: none; margin-top: 1rem;"></div>
+
+          <div style="margin-top: 1.5rem;">
+            <p class="question-text" style="font-size: 1rem;">Justifica tu razonamiento:</p>
+            <textarea id="astroJustificationText" class="reflective-textarea" placeholder="Explica con tus palabras: ¿crees que palabras como «deseo» o «creencia» son meras convenciones útiles de la psicología popular que sobrevivirán como 'la salida del sol', o crees que la neurociencia terminará por desterrarlas?"></textarea>
+            <div class="textarea-footer">
+              <span id="astro_char_count">0 caracteres</span>
+              <span>La calidad de tu justificación se reflejará en el informe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-footer-nav">
+        <button id="btnBackPhase3" class="btn btn-secondary">
+          <span>← Volver a Fase 2</span>
+        </button>
+        <button id="btnContinuePhase3" class="btn btn-primary" disabled>
+          <span>Continuar a Fase 4: Tres Posiciones Filosóficas</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         FASE 4: TRES POSICIONES FILOSÓFICAS
+         ============================================================= -->
+    <section class="phase-container" id="phase-4" aria-labelledby="phase4-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 4 de 6 · Debate Teórico Central</span>
+        <h2 class="phase-title" id="phase4-heading">Tres Posiciones Filosóficas</h2>
+        <p class="phase-subtitle">No todos los pensadores materiales piensan igual: compara el fisicalismo amplio, el radicalismo eliminativo y la pragmática evolutiva.</p>
+      </div>
+
+      <!-- Tarjetas Comparativas A, B y C -->
+      <div class="theories-grid">
+        <!-- Tarjeta A: Fisicalismo General -->
+        <div class="theory-card card-fisicalismo">
+          <span class="theory-tag">Posición A · Marco General</span>
+          <h3 class="theory-title">Fisicalismo General</h3>
+          <p class="theory-author">Monismo ontológico materialista</p>
+          <div class="theory-core-box">
+            <strong>Idea Central:</strong> La mente no constituye una realidad separada de la física. Los fenómenos mentales deben explicarse en relación con los procesos físicos cerebrales.
+          </div>
+          <ul class="theory-bullets">
+            <li>Rechaza tajantemente cualquier dualismo cartesiano de sustancias inmateriales.</li>
+            <li>Admite matices: muchos fisicalistas defienden que los conceptos psicológicos son propiedades emergentes reales o funcionales.</li>
+            <li><strong>Importante:</strong> No todos los fisicalistas son eliminativistas. Se puede ser fisicalista y considerar legítimo hablar de deseos y creencias.</li>
+          </ul>
+          <div class="theory-quote">
+            «Todo lo que existe en el cosmos obedece a leyes físicas; la mente debe explicarse dentro de la naturaleza».
+          </div>
+        </div>
+
+        <!-- Tarjeta B: Churchland - Materialismo Eliminativo -->
+        <div class="theory-card card-churchland">
+          <span class="theory-tag">Posición B · Tesis Radical</span>
+          <h3 class="theory-title">Paul y Patricia Churchland</h3>
+          <p class="theory-author">Materialismo Eliminativo (*Eliminative Materialism*)</p>
+          <div class="theory-core-box">
+            <strong>Idea Central:</strong> La psicología popular es una teoría errónea, estancada y falsa. Conceptos como 'creencia' o 'deseo' no serán reducidos: serán eliminados por la neurobiología madura.
+          </div>
+          <ul class="theory-bullets">
+            <li>Comparan la mente cotidiana con viejos errores científicos: el flogisto, el éter o los humores corporales. El flogisto no se redujo al oxígeno; se descartó porque no existía.</li>
+            <li>En un cerebro maduro investigado por la neurociencia encontramos potenciales sinápticos y tensores neuronales, no 'creencias' ni 'deseos' discretos.</li>
+          </ul>
+          <div class="theory-quote">
+            «Nuestra psicología de sentido común es una teoría arcaica fracasada que será reemplazada por la neurobiología».
+          </div>
+        </div>
+
+        <!-- Tarjeta C: Daniel Dennett -->
+        <div class="theory-card card-dennett">
+          <span class="theory-tag">Posición C · Perspectiva Evolutiva</span>
+          <h3 class="theory-title">Daniel Dennett</h3>
+          <p class="theory-author">Postura Intencional y la Metáfora del Escritorio</p>
+          <div class="theory-core-box">
+            <strong>Idea Central:</strong> La mente y la conciencia deben entenderse desde la evolución física. Nuestra experiencia consciente opera como la interfaz gráfica de usuario de un ordenador.
+          </div>
+          <ul class="theory-bullets">
+            <li><strong>La metáfora del escritorio:</strong> En pantalla ves iconos y papeleras. ¿Hay papeleras de plástico o carpetas dentro del chip? No, solo hay conmutaciones de silicio.</li>
+            <li>La interfaz es una «ilusión de usuario» evolucionada: una herramienta admirable para actuar sin necesidad de calcular millones de sinapsis.</li>
+            <li>Dennett no afirma que la conciencia sea una nada inexistente, sino que desmonta el error del «teatro cartesiano».</li>
+          </ul>
+          <div class="theory-quote">
+            «La interfaz del escritorio es una abstracción útil: la conciencia es la forma en que el cerebro se representa a sí mismo».
+          </div>
+        </div>
+      </div>
+
+      <!-- Simulador de la Metáfora del Escritorio de Dennett -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">💻</div>
+          <div>
+            <h3 class="card-title">Experiencia Interactiva: El Escritorio de Dennett</h3>
+            <p class="answer-record-item">Interactúa con el sistema operativo mental y activa el modo físico para ver el hardware subyacente:</p>
+          </div>
+        </div>
+
+        <div id="desktopSimContainer">
+          <!-- Renderizado por simulations.js -->
+        </div>
+      </div>
+
+      <!-- Actividad Comparativa con Feedback Detallado -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">⚖️</div>
+          <div>
+            <h3 class="card-title">Autoevaluación Comparativa: Distinguiendo las tres posturas</h3>
+            <p class="answer-record-item">Asigna cada tesis a la postura correspondiente (Fisicalismo general, Churchland o Dennett):</p>
+          </div>
+        </div>
+
+        <div id="phase4QuizContainer">
+          <!-- Renderizado dinámicamente -->
+        </div>
+      </div>
+
+      <div class="phase-footer-nav">
+        <button id="btnBackPhase4" class="btn btn-secondary">
+          <span>← Volver a Fase 3</span>
+        </button>
+        <button id="btnContinuePhase4" class="btn btn-primary" disabled>
+          <span>Continuar a Fase 5: Laboratorio de Ideas</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         FASE 5: LABORATORIO DE IDEAS (EVALUACIÓN FORMATIVA)
+         ============================================================= -->
+    <section class="phase-container" id="phase-5" aria-labelledby="phase5-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 5 de 6 · Laboratorio y Pensamiento Crítico</span>
+        <h2 class="phase-title" id="phase5-heading">Laboratorio de Ideas</h2>
+        <p class="phase-subtitle">Pon a prueba tu rigor filosófico con ejercicios de clasificación, análisis de casos prácticos y debate crítico con Thomas Nagel.</p>
+      </div>
+
+      <!-- Ejercicio 1: Clasificación Teórica -->
+      <div class="card" id="ex1-container">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">🧪</div>
+          <div>
+            <h3 class="card-title">Ejercicio 1: El Clasificador de Teorías (Laboratorio de Muestras)</h3>
+            <p class="answer-record-item">Arrastra la «Muestra Conceptual» activa o haz clic en la bandeja correspondiente para enrutarla:</p>
+          </div>
+        </div>
+        <div id="labEx1Content"></div>
+      </div>
+
+      <!-- Ejercicio 2: Estudio de Caso Aplicado -->
+      <div class="card" id="ex2-container">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">2</div>
+          <div>
+            <h3 class="card-title">Ejercicio 2: Aplicación a un Caso Concreto</h3>
+            <p class="answer-record-item">Analiza el comportamiento humano desde ópticas teóricas contrapuestas:</p>
+          </div>
+        </div>
+        <div class="theory-core-box">
+          <p>«Marta se asoma al balcón, observa nubes oscuras en el horizonte, <strong>cree</strong> que va a llover, <strong>desea</strong> no mojarse en el camino hacia la universidad y <strong>decide</strong> coger el paraguas».</p>
+        </div>
+        <div id="labEx2Content"></div>
+      </div>
+
+      <!-- Ejercicio 3: Desarmando la Metáfora del Escritorio -->
+      <div class="card" id="ex3-container">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">3</div>
+          <div>
+            <h3 class="card-title">Ejercicio 3: Profundización en la Metáfora del Escritorio</h3>
+            <p class="answer-record-item">Demuestra tu comprensión de los niveles de abstracción computacional y cerebral:</p>
+          </div>
+        </div>
+        <div id="labEx3Content"></div>
+      </div>
+
+      <!-- Ejercicio 4: Pensamiento Crítico con Thomas Nagel -->
+      <div class="card" id="ex4-container">
+        <div class="card-header-flex">
+          <div class="card-icon-badge">4</div>
+          <div>
+            <h3 class="card-title">Ejercicio 4: Pensamiento Crítico con Thomas Nagel</h3>
+            <p class="answer-record-item">Lectura e interpretación filosófica rigurosa de una crítica contemporánea a Dennett:</p>
+          </div>
+        </div>
+
+        <!-- Ilustración Conceptual: El Desencantamiento del Mundo Humano (Nagel vs Dennett) -->
+        <div class="card-figure-illustration">
+          <div class="figure-img-wrapper">
+            <img src="assets/nagel_desencantamiento_mente.jpg" alt="Ilustración conceptual de la crítica de Thomas Nagel a Daniel Dennett: El desencantamiento del mundo humano frente a la reducción mecánica" class="figure-img" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <span class="figure-tag orange">Figura 2 · El Desencantamiento de la Mente (Nagel vs. Dennett)</span>
+            <strong>La vivencia consciente frente a la máquina biológica:</strong> A la izquierda, la perspectiva de Nagel: el ser humano dotado de experiencia subjetiva sentida, conciencia y significado. A la derecha, la crítica al reduccionismo de Dennett: la reducción del ser humano a meros engranajes mecánicos, robots biológicos y ficticias «ilusiones del usuario».
+          </div>
+        </div>
+
+        <div class="theory-card" style="border-left: 4px solid var(--accent-orange); margin-bottom: 1.5rem;">
+          <span class="theory-tag" style="background: rgba(255, 145, 0, 0.2); color: var(--accent-orange); border: 1px solid var(--accent-orange);">Texto Filosófico Fuente</span>
+          <h4 class="theory-title">Thomas Nagel — El Desencantamiento del Mundo Humano y la Crítica a Dennett</h4>
+          <p class="theory-author">Reseña crítica sobre Daniel Dennett (The New York Review of Books)</p>
+          <div class="theory-quote" style="font-size: 0.95rem; line-height: 1.6; margin-top: 0.75rem;">
+            «Dennett lleva 50 años en un proyecto de desencantamiento del mundo humano, usando la ciencia para liberarnos de lo que él considera que son ilusiones. Este desencantamiento es la expulsión de todo espíritu fuera de la máquina biológica, de todo fenómeno (principalmente la conciencia) que no encaje con la visión científica materialista. Dennett, como Dawkins [otro filósofo fisicalista], considera que nos está liberando de la ignorancia y del pensamiento mágico; otra lectura diría que su desencantamiento nos deja en un mundo sin ningún encanto, sin ningún significado, simplemente como robots o, usando sus propios términos, como ilusiones del usuario, inexistentes fabricaciones de la maquinaria cerebral».
+          </div>
+        </div>
+
+        <div id="labEx4Content"></div>
+
+        <!-- Criterios de autoevaluación / Rúbrica docente para la pregunta de desarrollo -->
+        <div class="card" style="background-color: var(--bg-surface); border: 1px solid var(--border-subtle); margin-top: 1.25rem;">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 0.95rem;">Rúbrica de Rigor Filosófico (Criterios de Corrección Docente):</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Verifica si tu respuesta argumentada ha tenido en cuenta estos tres elementos clave:</p>
+          <ul class="theory-bullets" style="font-size: 0.85rem;">
+            <li><strong>Distinción entre crítica y adhesión:</strong> Criticar a Dennett por olvidar la subjetividad no obliga a defender la existencia de un alma inmortal o sustancia cartesiana inmaterial.</li>
+            <li><strong>Pluralidad de alternativas:</strong> Existen opciones como el monismo de doble aspecto (Spinoza, Nagel), el emergentismo ontológico o el fisicalismo no reduccionista.</li>
+            <li><strong>El problema de la causalidad:</strong> Exigiría analizar cómo concibe el autor la interacción entre las sensaciones subjetivas y las leyes del mundo físico.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-footer-nav">
+        <button id="btnBackPhase5" class="btn btn-secondary">
+          <span>← Volver a Fase 4</span>
+        </button>
+        <button id="btnContinuePhase5" class="btn btn-primary" disabled>
+          <span>Generar mi Informe de Aprendizaje Personalizado</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         FASE 6: TU INFORME DE APRENDIZAJE
+         ============================================================= -->
+    <section class="phase-container" id="phase-6" aria-labelledby="phase6-heading">
+      <div class="phase-hero">
+        <span class="phase-pill">Fase 6 de 6 · Síntesis Formativa Final</span>
+        <h2 class="phase-title" id="phase6-heading">Tu Informe de Aprendizaje</h2>
+        <p class="phase-subtitle">Balance personalizado de tu investigación sobre el problema mente-cerebro.</p>
+      </div>
+
+      <div class="card" id="printableReportCard">
+        <!-- Encabezado del Informe con metadatos -->
+        <div class="report-header">
+          <div>
+            <span class="logo-badge" style="margin-bottom: 0.5rem;">EVALUACIÓN FORMATIVA</span>
+            <h3 style="font-size: 1.5rem; color: #ffffff;">Informe Individual de Competencias Filosóficas</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Materia: Filosofía (Bachillerato) · Unidad: Filosofía de la Mente y del Conocimiento
+            </p>
+            <p style="color: var(--text-dim); font-size: 0.82rem;" id="reportDateStamp"></p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+            <span class="report-badge-status" id="reportMasteryScore">Análisis Completado</span>
+            <button id="btnPrintReport" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+              <span>🖨️ Imprimir / Guardar en PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. Mi punto de partida (Respuestas Fase 1) -->
+        <div class="report-section">
+          <h4 class="report-section-title">
+            <span>🧭</span>
+            <span>1. Mi punto de partida</span>
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+            Estas fueron las intuiciones ontológicas que expresaste en la Fase 1 antes de profundizar en las teorías:
+          </p>
+          <div class="comparison-box box-initial" id="reportPhase1Answers">
+            <!-- Rellenado dinámicamente -->
+          </div>
+        </div>
+
+        <!-- 2. Lo que he comprendido (Conceptos dominados) -->
+        <div class="report-section">
+          <h4 class="report-section-title">
+            <span>✅</span>
+            <span>2. Lo que he comprendido con éxito</span>
+          </h4>
+          <div class="mastery-badges-list" id="reportMasteredList">
+            <!-- Badges -->
+          </div>
+        </div>
+
+        <!-- 3. Lo que necesito revisar (Confusiones y explicaciones de refuerzo) -->
+        <div class="report-section">
+          <h4 class="report-section-title">
+            <span>💡</span>
+            <span>3. Conceptos que conviene consolidar o revisar</span>
+          </h4>
+          <div id="reportReviewList">
+            <!-- Feedback correctivo -->
+          </div>
+        </div>
+
+        <!-- 4. Mi mapa conceptual interactivo -->
+        <div class="report-section">
+          <h4 class="report-section-title">
+            <span>🗺️</span>
+            <span>4. Mi Mapa Conceptual: La Red del Debate</span>
+          </h4>
+          <div class="conceptual-map-container">
+            <div class="map-nodes-grid" id="conceptualMapNodes">
+              <!-- Nodos del mapa -->
+            </div>
+            <ul class="map-relations-list" id="conceptualMapRelations">
+              <!-- Enlaces con etiquetas explicativas -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5. Mi respuesta final argumentada -->
+        <div class="report-section">
+          <h4 class="report-section-title">
+            <span>✍️</span>
+            <span>5. Mi Respuesta Final Argumentada: «¿Eres tu cerebro?»</span>
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">
+            Ahora que has analizado el fisicalismo, la metáfora del escritorio de Dennett, el eliminativismo de los Churchland y la crítica a la subjetividad de Nagel, redacta tu conclusión filosófica justificada:
+          </p>
+          <textarea id="finalReflectiveText" class="reflective-textarea" style="min-height: 150px;" placeholder="¿Cómo responderías ahora a la pregunta inicial? ¿Eres únicamente tu cerebro físico, eres una interfaz funcional, o consideras irreductible la experiencia subjetiva en primera persona? Argumenta relacionando al menos dos de los autores o conceptos aprendidos..."></textarea>
+          <div class="textarea-footer">
+            <span id="final_char_count">0 caracteres</span>
+            <span>Esta conclusión forma parte de tu evaluación formativa de Bachillerato</span>
+          </div>
+        </div>
+
+        <!-- 6. Mi siguiente paso -->
+        <div class="report-section" style="margin-bottom: 1rem;">
+          <h4 class="report-section-title">
+            <span>🚀</span>
+            <span>6. Mi siguiente paso recomendado</span>
+          </h4>
+          <div class="feedback-box info" id="reportNextStepBox">
+            <!-- Recomendación individualizada -->
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-footer-nav">
+        <button id="btnBackPhase6" class="btn btn-secondary">
+          <span>← Volver al Laboratorio (Fase 5)</span>
+        </button>
+        <button id="btnRestartFromReport" class="btn btn-amber">
+          <span>🔄 Volver a intentar ejercicios</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================================
+       MODALES ACCESIBLES: GLOSARIO Y CONFIRMACIÓN DE REINICIO
+       ============================================================= -->
+
+  <!-- Modal Glosario Filosófico -->
+  <div class="modal-backdrop" id="glossaryModal" role="dialog" aria-modal="true" aria-labelledby="glossaryTitle">
+    <div class="modal-dialog">
+      <h3 class="modal-title" id="glossaryTitle">📖 Glosario de Filosofía de la Mente</h3>
+      <div class="modal-body" style="max-height: 380px; overflow-y: auto;">
+        <div style="margin-bottom: 1rem;">
+          <strong style="color: var(--accent-cyan);">Fisicalismo:</strong>
+          <p>Tesis ontológica que sostiene que todo lo real es físico o superviene sobre entidades físicas gobernadas por leyes naturales.</p>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <strong style="color: var(--accent-orange);">Materialismo Eliminativo (Churchland):</strong>
+          <p>Postura radical según la cual la psicología popular es un marco teórico falso que será eliminado y reemplazado por la neurobiología madura.</p>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <strong style="color: var(--accent-cyan);">Ilusión de Usuario / User-Illusion (Dennett):</strong>
+          <p>Analogía informática: la conciencia es la interfaz gráfica simplificada y adaptativa que permite al cerebro gestionar su propia complejidad física.</p>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <strong style="color: #ffffff;">Psicología Popular (Folk Psychology):</strong>
+          <p>Esquema conceptual cotidiano que explica las acciones humanas a través de razones, deseos, creencias e intenciones conscientes.</p>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <strong style="color: #f43f5e;">Qualia / Subjetividad (Nagel):</strong>
+          <p>El aspecto fenoménico o vivencial de la mente: «lo que se siente» ser alguien o experimentar dolor, irreductible a una descripción externa en 3.ª persona.</p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="btnCloseGlossary" class="btn btn-primary">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Confirmación de Reinicio -->
+  <div class="modal-backdrop" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
+    <div class="modal-dialog">
+      <h3 class="modal-title" id="resetModalTitle">¿Reiniciar la experiencia?</h3>
+      <div class="modal-body">
+        <p>Esta acción borrará todas tus respuestas guardadas y tu progreso para comenzar desde la Fase 1. ¿Estás seguro de que deseas continuar?</p>
+      </div>
+      <div class="modal-actions">
+        <button id="btnCancelReset" class="btn btn-secondary">Cancelar</button>
+        <button id="btnConfirmReset" class="btn btn-amber">Sí, reiniciar todo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="questions.js"></script>
+  <script src="simulations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
